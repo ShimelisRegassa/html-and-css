@@ -1,0 +1,368 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+input,button,textarea{
+    font: inherit;
+}
+
+/* ||VARIABLES */
+
+:root{
+    /*FONTS */
+    --FF:sans-serif;
+    --FF-HEADINGS:fantasy,cursive;
+    --FS:clamp(1rem,2.2vh,1.5rem);
+
+    /* COLORS */
+    --BGCOLOR:orange;
+    --BGCOLOR-FADE:rgb(252,220,160);
+    --BGIMAGE:linear-gradient(to bottom,var(var(--BGCOLOR)),var(var(var(--BGCOLOR-FADE))));
+    --BODY-BGCOLOR:#fff;
+    --FONT-COLOR:black;
+    --BORDER-COLOR:#333;
+    --HIGHLIGHT-COLOR:rgb(51,178,51);
+    --LINK-COLOR:#000;
+    --LINK-HOVER: hsla(0,0%,0%,0.6);
+    --LINK-ACTIVE:orange;
+    --HEADER-COLOR:#FFF;
+    --NAV-BGCOLOR:#FFF;
+    --HEADER-BGCOLOR:#000;
+    --HERO-COLOR:#fff;
+    --BUTTON-COLOR:#fff;
+    
+    /*BORDERS */
+
+    --BORDERS:1px solid var((--BORDER-COLOR));
+    --BORDER-RADIUS:15px;
+
+    /* STANDARD PADDING */
+    --PADDING-TB:0.25em;
+    --PADDING-SIDE:2.5%;
+
+    /*STANDARD MARGIN */
+    --MARGIN: clamp(1em,2.5vh,1.5em) 0;
+
+} 
+
+@media(prefers-color-scheme: dark){
+    :root{
+        --BGCOLOR:#000;
+        --BGCOLOR-FADE:gray;
+        --HEADER-COLOR:whitesmoke;
+        --NAV-BGCOLOR:rgb(20,20,20);
+        --HERO-COLOR:#333;
+        --BODY-BGCOLOR:#333;
+        --FONT-COLOR:whitesmoke;
+        --HIGHLIGHT-COLOR:whitesmoke;
+        --BORDER-COLOR:whitesmoke;
+        --LINK-COLOR:whitesmoke;
+        --LINK-HOVER:orange;
+        --LINK-ACTIVE:rgb(252,200,103);
+        --BUTTON-COLOR:black;
+
+
+    }
+}
+
+/* || UTILITY CLASSES */
+
+.offscreen{
+    position: absolute;
+    left: -10000px;
+}
+.nowrap{
+    white-space:nowrap;
+}
+
+.center{
+    text-align: center;
+}
+
+/* || GENERAL STYLES */
+html{
+    scroll-behavior: smoth;
+    font-family: var(--FF);
+    font-size: var(--FS );
+    background-color: var(--BGCOLOR);
+    background-image: var(--BGIMAGE);
+}  
+
+body{
+    background-color: var(--BODY-BGCOLOR);
+    color: var(--FONT-COLOR);
+    min-height: 100vh;
+    max-width: 800px;
+    margin: 0 auto;
+    border-left: var(--BORDERS);
+    border-right: var(--BORDERS);
+    box-shadow: 0 0 10px var((--BORDER-COLOR))
+
+}
+h1,h2,h3{
+    font-family: var(--FF-HEADINGS);
+    letter-spacing:0.1rem;
+}
+
+h2,h3{
+    color: var(--HIGHLIGHT-COLOR);
+
+}
+
+p{
+    line-height: 1.5;
+}
+
+a:any-link{
+   color: var(--LINK-COLOR);
+
+}
+
+a:hover,a:focus-visible{
+color: var(--LINK-HOVER);
+}
+
+a:active{
+    color: var(--LINK-ACTIVE);
+}
+
+/* || HEADER */
+
+.header{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+}
+.header__h1{
+    text-align: center;
+    background-color: var(--HEADER-BGCOLOR);
+    color: var(--HEADER-COLOR);
+    padding: var(--PADDING-TB) var(--PADDING-SIDE);
+}
+
+.header__nav{
+    background-color: var(--NAV-BGCOLOR);
+    border-bottom: var(--BORDERS);
+    font-weight: bold;
+    box-shadow: 0 6px 5px -5px var(--BORDER-COLOR);
+}
+
+.header__ul{
+ padding: var(--PADDING-TB) var(--PADDING-SIDE);
+ list-style-type: none;
+ display: flex;
+ justify-content: space-evenly;
+ gap: 1rem;
+}
+
+
+/* ||HELLO */
+
+.hero{
+    position: relative;
+
+}
+
+/*FOOTER */
+
+.footer{
+    position: sticky;
+    bottom: 0;
+    background-color: var(--HEADER-BGCOLOR);
+    color: var(--HEADER-COLOR);
+    padding: var(--PADDING-TB)  var(--PADDING-SIDE);
+    text-align: center;
+}
+
+/*MAIN */
+
+.main{
+    padding: var(--PADDING-SIDE) var(--PADDING-TB);
+}
+
+.main__article{
+    scroll-margin-top: 6.5rem ;
+    margin: var(--MARGIN);
+}
+
+.main__article:first-child{
+    margin-top: 1rem;
+    
+}
+.main__article:last-child{
+  min-height: calc(100vh - 20rem);
+}
+
+.about__trivia{
+    margin: var(--MARGIN);
+}
+.about__answer{
+    margin-top: 1rem;
+}
+
+.contact__h2{
+    margin:0;
+}
+
+.contact__p{
+    margin:1em 0;
+
+}
+.shime{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+}
+  
+.home__p{
+    margin-left: 8rem;
+}
+
+.flexup{
+    margin-left: 3rem;
+}
+
+.contact__label{
+    display: block;
+    font-weight: bold;
+}
+.contact__input,.contact__textarea{
+    padding: 0.5rem;
+    border-radius: 15px;
+    border-width: 2px;
+    width: 100%;
+  
+}
+.home{
+    list-style-type:disc;
+}
+.home__fir{
+    list-style-type: square;
+    margin-left: 2rem;
+}
+.contact__button{
+    padding: 0.5em;
+    border-radius: 15px;
+    background-color: var(--HIGHLIGHT-COLOR);
+    color: var(--BUTTON-COLOR);
+    font-weight: bold;
+}
+
+/* ||MENU */
+
+thead,tbody,tfoot,tr{
+    display: contents;
+}
+
+.ddetail{
+    margin-left: 2rem;
+}
+
+.menu__container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: "hd1 hd2 hd3"
+    "cr cr1 cr1p"
+    "cr cr2 cr2p"
+    "cr cr3 cr3p"
+    "sf sf1 sf1p"
+    "sf sf2 sf2p"
+    "ev ev1 ev1p"
+    "ni ni1 ni1p"
+    "ni ni2 ni2p"
+    "ni ni3 ni3p"
+    "ni ni4 ni4p"
+    "bt bt bt"
+    "bt bt bt";
+   gap: 0.1em;
+margin-bottom: 1em;
+}
+
+.menu__morning{
+    grid-area:cr;
+
+}
+.menu__afternoon{
+    grid-area:sf;
+}
+.menu__evening{
+    grid-area: ev;
+    color: var(--HIGHLIGHT-COLOR);
+    font-weight: bold;
+}
+
+.menu__night{
+    grid-area: ni;
+    color: var(--HIGHLIGHT-COLOR);
+    font-weight: bold;
+}
+.menu__bottom{
+    grid-area: bt;
+    color: var(--HIGHLIGHT-COLOR);
+}
+
+.menu__morning,.menu__afternoon,.menu__evening,.menu__bottom,.menu__header{
+    color: var(--HIGHLIGHT-COLOR);
+    font-weight: bold;
+    height: 100%;
+    display: grid;
+    place-content: center;
+}
+
+.menu__header{
+    border-bottom: var(--BORDERS);
+}
+.menu__header,.menu__item{
+    width: 100%;
+    padding: 1rem;
+    border: medium ridge var(--BORDER-COLOR);
+}
+
+
+thead th:first-child{
+    border-top-left-radius: var(--BORDER-RADIUS);
+}
+thead th:last-child{
+    border-top-right-radius: var(--BORDER-RADIUS);
+}
+
+tfoot td{
+    border-bottom-left-radius: var(--BORDER-RADIUS);
+    border-bottom-right-radius: var(--BORDER-RADIUS);
+}
+
+.center{
+    
+    color: var(--LINK-COLOR);
+
+}
+
+.center a:active{
+text-decoration: none;
+background-color: var(--LINK-ACTIVE);
+}
+
+.center a:hover{
+    color: var(--LINK-HOVER);
+}
+
+
+@media  screen and (min-width:567px) {
+    
+    .menu__header,.menu__morning,
+     .menu__afternoon ,.menu__evening  ,
+     .menu__night {
+      font-size: 125%;
+    }
+}
+
